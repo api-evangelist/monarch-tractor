@@ -1,0 +1,68 @@
+generated: '2026-08-04'
+method: probed
+source: live HTTP probes of every Monarch Tractor host reachable from apis.yml
+note: >-
+  No /.well-known/ document was found on any Monarch Tractor host. This file records the
+  probe so a later run does not repeat it blind. It is deliberately NOT wired as a
+  `WellKnown` pointer in apis.yml — nothing was found, and a pointer to an empty result
+  would credit a discovery surface that does not exist.
+hosts:
+- host: https://www.monarchtractor.com
+  note: HubSpot CMS marketing site; all /.well-known/* paths return the HubSpot 404 page.
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+  - {path: /openapi.json, status: 404}
+  - {path: /swagger.json, status: 404}
+  - {path: /robots.txt, status: 200}
+  - {path: /sitemap.xml, status: 200}
+- host: https://api.monarchtractor.com
+  note: >-
+    DNS A record resolves (44.241.134.204, us-west-2 EC2) but the host presents a TLS
+    certificate for auth.blazel.com (SANs: auth/dev/www/app/blazel.com), so the name does
+    not validate — a dangling DNS record, not a live Monarch API. Probed with certificate
+    validation disabled purely to characterise it; the responding service is a FastAPI app
+    that 307s / to /login and returns {"detail":"Not Found"} for every spec path.
+  tls_hostname_match: false
+  documents:
+  - {path: /, status: 307, note: 'redirects to /login'}
+  - {path: /openapi.json, status: 404}
+  - {path: /openapi.yaml, status: 404}
+  - {path: /swagger.json, status: 404}
+  - {path: /v1/openapi.json, status: 404}
+  - {path: /api/openapi.json, status: 404}
+  - {path: /api/v1/openapi.json, status: 404}
+  - {path: /api-docs, status: 404}
+  - {path: /docs, status: 404}
+  - {path: /redoc, status: 404}
+  - {path: /graphql, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/security.txt, status: 404}
+- host: https://wingspanai.com
+  note: >-
+    The WingspanAI platform host linked from monarchtractor.com/digital-solutions. The
+    domain is registered and ACTIVE at GoDaddy (expires 2026-11-11) and delegated to four
+    AWS Route 53 nameservers, but all four answer REFUSED — a lame delegation, so the zone
+    no longer exists. Confirmed independently via Google Public DNS (SERVFAIL, EDE 22/23)
+    and Cloudflare DNS ("No Reachable Authority at delegation wingspanai.com").
+  dns_resolves: false
+  documents:
+  - {path: /, status: 0, note: 'DNS resolution failure (lame delegation)'}
+  - {path: /login, status: 0, note: 'DNS resolution failure (lame delegation)'}
+hosts_not_resolving:
+- monarchtractor.com
+- developer.monarchtractor.com
+- docs.monarchtractor.com
+- app.monarchtractor.com
+- portal.monarchtractor.com
+- status.monarchtractor.com
+- wingspanai.com
+- www.wingspanai.com
+- app.wingspanai.com
+- api.wingspanai.com

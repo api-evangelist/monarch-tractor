@@ -42,5 +42,7 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Monarch Tractor is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/monarch-tractor_stock/
+Monarch Tractor is a Livermore, California agricultural-technology company that builds the MK-V, a fully electric, driver-optional smart tractor, together with WingspanAI (Wingspan Ag Intelligence) — an AWS-hosted farm-management and fleet-telemetry platform that collects in-field video, machine telemetry, energy and emissions data from connected tractors and presents it to growers through web and mobile apps. The company markets an "open ecosystem" in which third parties integrate with the MK-V and WingspanAI, and has pivoted toward selling autonomy as software and licensing its autonomy stack to other equipment makers. Monarch publishes no public developer portal, API reference, or machine-readable specification; the WingspanAI platform is reachable only through a customer login.
+
+- https://www.monarchtractor.com/
+- https://www.monarchtractor.com/digital-solutions

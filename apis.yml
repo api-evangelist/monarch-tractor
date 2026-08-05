@@ -1,7 +1,16 @@
 aid: monarch-tractor
 name: Monarch Tractor
-description: 'Monarch Tractor is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Monarch Tractor is a Livermore, California agricultural-technology company
+  that builds the MK-V, a fully electric, driver-optional smart tractor, together with
+  WingspanAI (Wingspan Ag Intelligence) — an AWS-hosted farm-management and fleet-telemetry
+  platform that collects in-field video, machine telemetry, energy and emissions data
+  from connected tractors and presents it to growers through web and mobile apps. The
+  company markets an "open ecosystem" in which third parties integrate with the MK-V
+  and WingspanAI, and has pivoted toward selling autonomy as software and licensing its
+  autonomy stack to other equipment makers. Monarch publishes no public developer portal,
+  API reference, or machine-readable specification; the WingspanAI platform is reachable
+  only through a customer login.'
+image: https://www.monarchtractor.com/hubfs/logo_horizontal_rgb.png
 url: https://raw.githubusercontent.com/api-evangelist/monarch-tractor/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +21,15 @@ created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Agriculture
+- AgTech
+- Robotics
+- Autonomous Vehicles
+- Electric Vehicles
+- Farm Management
+- Telemetry
+- Internet of Things
+- Artificial Intelligence
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +38,52 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/monarch-tractor_stock/
+  url: https://www.monarchtractor.com/
+- type: Blog
+  url: https://www.monarchtractor.com/blog
+- type: Documentation
+  url: https://www.monarchtractor.com/en/kb
+- type: Support
+  url: https://www.monarchtractor.com/contact-us
+- type: HelpCenter
+  url: https://www.monarchtractor.com/faq
+- type: PrivacyPolicy
+  url: https://www.monarchtractor.com/privacy-policy
+- type: TermsOfUse
+  url: https://www.monarchtractor.com/terms-of-use
+- type: GitHubOrganization
+  url: https://github.com/Monarch-Tractor
+- type: Product
+  url: https://www.monarchtractor.com/digital-solutions
+- type: Login
+  url: https://wingspanai.com/login
+- type: DomainSecurity
+  url: security/monarch-tractor-domain-security.yml
+- type: LLMsTxt
+  url: llms/monarch-tractor-llms.txt
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Monarch ships software (WingspanAI) but publishes no developer surface at all —
+    /developers, /api, /integrations and every /.well-known/ and spec path 404 on
+    www.monarchtractor.com, and the only product endpoint it links, wingspanai.com/login,
+    no longer resolves because all four of the domain's Route 53 nameservers answer
+    REFUSED (lame delegation).
+  evidence:
+  - url: https://www.monarchtractor.com/developers
+    status: 404
+  - url: https://www.monarchtractor.com/.well-known/api-catalog
+    status: 404
+  - url: https://www.monarchtractor.com/openapi.json
+    status: 404
+  - url: https://wingspanai.com/login
+    status: 0
+  - url: https://api.monarchtractor.com/openapi.json
+    status: 404
+  checked: '2026-08-04'
